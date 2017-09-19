@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/measures.ejs %>
+        <% include ../partials/head.ejs %>
+</head>
+
+<body>
+
+    <header>
+        <% include ../partials/nav.ejs %>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <div class="top-image"></div>
+
+            <div class="middle clearfix">
+
+                <div id="ctl00_divSocialMediaShareBar"></div>
+
+                <div class="clear">
+
+                    <a id="content" name="content"></a>
+
+                    <script type="text/javascript">
+                        // focus returns to this element after popup is hidden
+                        var returnFocus;
+                        j$.fn.extend({
+                            social: {
+
+                                // add events to icons from the array
+                                addPopupEvents: function(arr) {
+
+                                    j$(arr).each(function() {
+                                        var icon_id = this[0];
+                                        var td_id = this[1];
+                                        var popup_id = this[2];
+                                        var url = this[3];
+
+                                        // show popup when icons are clicked
+                                        j$(icon_id).click(function(e) {
+                                            j$.fn.social.iconAction(icon_id, td_id, popup_id, url);
+                                            e.stopPropagation();
+                                            e.preventDefault();
+                                        });
+
+                                        // actions for pressing enter and esc on icons
+                                        j$(icon_id).keypress(function(e) {
+                                            if (e.keyCode == 13) // Enter
+                                            {
+                                                j$.fn.social.iconAction(icon_id, td_id, popup_id, url);
+                                                e.preventDefault();
+                                            } else if (e.keyCode == 27) // Esc
+                                                j$.fn.social.removePopup();
+                                        });
+
+                                        // do not hide the popup if blank area on it is clicked
+                                        j$(popup_id).click(function(e) {
+                                            e.stopPropagation();
+                                        });
+
+                                        // remove popup when a link is clicked on popup
+                                        j$(popup_id).find("a").each(function(el) {
+                                            var pClick = this.onclick;
+                                            this.onclick = null;
+                                            j$(this).click(function(e) {
+
+                                                j$.fn.social.removePopup();
+                                                e.stopPropagation();
+                                                if (pClick != undefined)
+                                                    pClick(e);
+                                                //e.preventDefault();
+                                            });
+                                        });
+
+                                        // remove popup if escape is pressed
+                                        j$(popup_id).find("a").keydown(function(e) {
+                                            if (e.keyCode == 27)
+                                                j$.fn.social.removePopup();
+                                        });
+
+                                        // remove popup if tab is pressed on last link
+                                        // do not remove if shift+tab is pressed
+                                        j$(popup_id).find("a:last").keydown(function(e) {
+                                            if (!e.shiftKey && e.keyCode == 9)
+                                                j$.fn.social.removePopup();
+                                        });
+
+                                        // remove popup if shift+tab is pressed on first link
+                                        // do not remove if tab is pressed
+                                        j$(popup_id).find("a:first").keydown(function(e) {
+                                            if (e.shiftKey && e.keyCode == 9)
+                                                j$.fn.social.removePopup();
+                                        });
+
+                                    });
+
+                                    // remove popup if clicked elsewhere
+                                    j$(document).click(function() {
+                                        j$.fn.social.removePopup();
+                                    });
+                                },
+
+                                // first remove all open popups then open one and focus its first link
+                                showPopup: function(pop_id) {
+                                    j$.fn.social.removePopup();
+                                    j$(pop_id).css("display", "block");
+                                    j$(pop_id).find("a:first").focus();
+                                },
+
+                                // remove all open popups
+                                removePopup: function() {
+                                    j$(popup_array).each(function() {
+                                        if (j$(this[2]).css("display") && j$(this[2]).css("display") != "none") {
+                                            j$(this[2]).css("display", "none");
+                                        }
+                                    });
+                                    if (returnFocus) {
+                                        j$(returnFocus).focus();
+                                        returnFocus = undefined;
+                                    }
+                                },
+
+                                iconAction: function(icon_id, td_id, pop_id, url) {
+                                    if (td_id)
+                                        j$(pop_id).appendTo(j$(td_id));
+                                    else
+                                        j$(pop_id).appendTo(j$(icon_id).parent());
+                                    if (url != "" && url != "#") {
+                                        j$(pop_id).find("a").each(function() {
+                                            j$(this).attr("href", url);
+                                        });
+                                    }
+                                    returnFocus = icon_id;
+                                    j$.fn.social.showPopup(pop_id);
+                                }
+
+                            }
+                        });
+
+                        j$(document).ready(function() {
+                            popup_array = popup_stuff;
+                            j$.fn.social.addPopupEvents(popup_array);
+
+                            if (j$("#NFContainerContainer").height() > 150)
+                                j$("#NFContainerContainer").height(150);
+                        });
+                    </script>
+
+                    <style type="text/css">
+                        div.layout-2 li.when table.HoverContainer,
+                        div.layout-1 li.when table.HoverContainer {
+                            width: 260px;
+                        }
+
+                        div.layout-2 li.when table.HoverContainer td,
+                        div.layout-1 li.when table.HoverContainer td {
+                            text-align: left;
+                        }
+
+                        div.layout-2 li.when table.CalContainer,
+                        div.layout-1 li.when table.CalContainer {
+                            width: 150px;
+                        }
+
+                        .HoverContainer {
+                            border: 1px solid gray;
+                            position: absolute;
+                            background-color: White;
+                            text-align: left;
+                            display: none;
+                            z-index: 200;
+                            width: 260px;
+                        }
+
+                        .HoverContainer td {
+                            padding: 5px;
+                        }
+
+                        .HoverContainer .ItemClass {
+                            padding-right: 10px;
+                            padding-left: 10px;
+                            vertical-align: top;
+                        }
+
+                        .HoverContainer a {
+                            text-decoration: none;
+                        }
+
+                        .HoverContainer a .SName {
+                            text-decoration: underline;
+                            padding-left: 5px;
+                            vertical-align: top;
+                        }
+
+                        table.HoverContainer a span.SName {
+                            font-size: 8pt;
+                        }
+
+                        .CalContainer {
+                            width: 150px;
+                        }
+
+                        #NFContainerContainer {
+                            width: 215px;
+                            overflow-y: auto;
+                            overflow-x: hidden;
+                            position: absolute;
+                            display: none;
+                            border: 1px solid gray;
+                        }
+
+                        #NFContainerContainer table {
+                            display: block;
+                            border: none;
+                            position: static;
+                            width: 100%;
+                            background-color: White;
+                            text-align: left;
+                        }
+                    </style>
+
+                    <div class="container-5">
+                        <div class="content-block">
+                            <p></p>
+                            <pre><span style="font-size: 36px; font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong>AUTODESK X</strong></span></pre>
+                            <p>
+                                <span style="font-size: 36px; font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong></strong></span>
+                                <span style="font-family: Helvetica, Arial, sans-serif;">
+                                    <span style="font-size: 18px;">
+                                        <span style="color: #3f3f3f;"><strong>Autodesk X is the point of convergence, and cohesion, driving the unified Autodesk experience customers need now.</strong>&nbsp;</span>
+                                    </span>
+                                </span>
+                            </p>
+                            <h3></h3>
+                            <h3><span style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong>HIG FIDELITY</strong></span></h3>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">CONNECT, CONTRIBUTE, UNIFY</span></p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif;"></span><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">Design is the connective tissue. We must come together with a common voice and visual language to unify experiences across our products and around the world. This track is for the connectors, the pattern makers, and the standard bearers that make us distinctively Autodesk.&nbsp;</span>
+                                <span style="color: #3f3f3f;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">Read more about HIG:&nbsp;</span><a href="http://hig.autodesk.com/" style="font-size: 16px; font-family: Arial;">hig.autodesk.com</a></span>
+                            </p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">Possible topics: project/pattern workshops, onboarding experience, unified learning experience, design for mobile, connecting cloud applications, establishing common languages, modernizing desktop products, design for failure states, best practices, fusing HIG and Brand, content design, unified student experience, designing Forge micro-services.</span></p>
+                            <h3><span style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong>MAD SKILLS</strong></span></h3>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">CO-CREATE, COLLABORATE, COOPERATE, BUILD SKILLS </span></p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">Let’s activate Autodesk's most valuable resource: each other. Share what you know with your peers. Learn what you don't know from the best. Let’s get smarter together as we all work towards a seamless Autodesk customer experience.&nbsp;</span></p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">Possible topics: working with customers, skills exchange, product training &amp; demos, prototyping, experimenting, launching a guild, conducting effective critiques, collaboration across functions, working with data analytics, product management 101, designing in code, how to accelerate implementation for cloud applications/services, how to grow our customer base, how to build customer loyalty, research techniques.<br></span></p>
+                            <h3><span style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong>VIEWS</strong></span></h3>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">ZOOM-IN, ZOOM-OUT</span></p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">It’s about the big picture, the close-up, and the juxtaposition between them. This track is about the connections between the low-level details and the high ideals that motivate us, drive our design practice, and define the Autodesk experience.</span></p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">Possible topics: zero interface, adaptive UI, machine learning, designing in AR/VR, student panels, customer panels, designing the offline customer experience, managing cloud expectations (latency, load, resilience), designing with BOTs, voice, and gestures.</span></p>
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+                        var popup_stuff = new Array([j$("#lnkAddCal"), j$("#tdCal"), j$("#ctl00_ContentPlaceHolder1_lstCal"), "#"]);
+                    </script>
+
+                    <div class="register-btn-bottom">
+                        <table align="right">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="grButtonLeft"></td>
+                                                    <td class="grButtonMid">
+                                                        <a id="ctl00_btnRegBottom" class="grButtonText" href="/events/x-summit-2017-registration-/registration-893d048f2bf94cb680449de2e5892c0c.aspx">Register Now</a></td>
+                                                    <td class="grButtonRight"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer.ejs %>
+    </footer>
+
+</body>
+
+</html>

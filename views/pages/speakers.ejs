@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/measures.ejs %>
+    <% include ../partials/head.ejs %>
+</head>
+
+<body>
+
+    <header>
+        <% include ../partials/nav.ejs %>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <div class="top-image"></div>
+
+            <div class="middle clearfix">
+
+                <div id="ctl00_divSocialMediaShareBar"></div>
+
+                <div class="clear">
+
+                    <a id="content" name="content"></a>
+
+                    <script type="text/javascript">
+                        // focus returns to this element after popup is hidden
+                        var returnFocus;
+                        j$.fn.extend({
+                            social: {
+
+                                // add events to icons from the array
+                                addPopupEvents: function(arr) {
+
+                                    j$(arr).each(function() {
+                                        var icon_id = this[0];
+                                        var td_id = this[1];
+                                        var popup_id = this[2];
+                                        var url = this[3];
+
+                                        // show popup when icons are clicked
+                                        j$(icon_id).click(function(e) {
+                                            j$.fn.social.iconAction(icon_id, td_id, popup_id, url);
+                                            e.stopPropagation();
+                                            e.preventDefault();
+                                        });
+
+                                        // actions for pressing enter and esc on icons
+                                        j$(icon_id).keypress(function(e) {
+                                            if (e.keyCode == 13) // Enter
+                                            {
+                                                j$.fn.social.iconAction(icon_id, td_id, popup_id, url);
+                                                e.preventDefault();
+                                            } else if (e.keyCode == 27) // Esc
+                                                j$.fn.social.removePopup();
+                                        });
+
+                                        // do not hide the popup if blank area on it is clicked
+                                        j$(popup_id).click(function(e) {
+                                            e.stopPropagation();
+                                        });
+
+                                        // remove popup when a link is clicked on popup
+                                        j$(popup_id).find("a").each(function(el) {
+                                            var pClick = this.onclick;
+                                            this.onclick = null;
+                                            j$(this).click(function(e) {
+
+                                                j$.fn.social.removePopup();
+                                                e.stopPropagation();
+                                                if (pClick != undefined)
+                                                    pClick(e);
+                                                //e.preventDefault();
+                                            });
+                                        });
+
+                                        // remove popup if escape is pressed
+                                        j$(popup_id).find("a").keydown(function(e) {
+                                            if (e.keyCode == 27)
+                                                j$.fn.social.removePopup();
+                                        });
+
+                                        // remove popup if tab is pressed on last link
+                                        // do not remove if shift+tab is pressed
+                                        j$(popup_id).find("a:last").keydown(function(e) {
+                                            if (!e.shiftKey && e.keyCode == 9)
+                                                j$.fn.social.removePopup();
+                                        });
+
+                                        // remove popup if shift+tab is pressed on first link
+                                        // do not remove if tab is pressed
+                                        j$(popup_id).find("a:first").keydown(function(e) {
+                                            if (e.shiftKey && e.keyCode == 9)
+                                                j$.fn.social.removePopup();
+                                        });
+
+                                    });
+
+                                    // remove popup if clicked elsewhere
+                                    j$(document).click(function() {
+                                        j$.fn.social.removePopup();
+                                    });
+                                },
+
+                                // first remove all open popups then open one and focus its first link
+                                showPopup: function(pop_id) {
+                                    j$.fn.social.removePopup();
+                                    j$(pop_id).css("display", "block");
+                                    j$(pop_id).find("a:first").focus();
+                                },
+
+                                // remove all open popups
+                                removePopup: function() {
+                                    j$(popup_array).each(function() {
+                                        if (j$(this[2]).css("display") && j$(this[2]).css("display") != "none") {
+                                            j$(this[2]).css("display", "none");
+                                        }
+                                    });
+                                    if (returnFocus) {
+                                        j$(returnFocus).focus();
+                                        returnFocus = undefined;
+                                    }
+                                },
+
+                                iconAction: function(icon_id, td_id, pop_id, url) {
+                                    if (td_id)
+                                        j$(pop_id).appendTo(j$(td_id));
+                                    else
+                                        j$(pop_id).appendTo(j$(icon_id).parent());
+                                    if (url != "" && url != "#") {
+                                        j$(pop_id).find("a").each(function() {
+                                            j$(this).attr("href", url);
+                                        });
+                                    }
+                                    returnFocus = icon_id;
+                                    j$.fn.social.showPopup(pop_id);
+                                }
+
+                            }
+                        });
+
+                        j$(document).ready(function() {
+                            popup_array = popup_stuff;
+                            j$.fn.social.addPopupEvents(popup_array);
+
+                            if (j$("#NFContainerContainer").height() > 150)
+                                j$("#NFContainerContainer").height(150);
+                        });
+                    </script>
+
+                    <style type="text/css">
+                        div.layout-2 li.when table.HoverContainer,
+                        div.layout-1 li.when table.HoverContainer {
+                            width: 260px;
+                        }
+
+                        div.layout-2 li.when table.HoverContainer td,
+                        div.layout-1 li.when table.HoverContainer td {
+                            text-align: left;
+                        }
+
+                        div.layout-2 li.when table.CalContainer,
+                        div.layout-1 li.when table.CalContainer {
+                            width: 150px;
+                        }
+
+                        .HoverContainer {
+                            border: 1px solid gray;
+                            position: absolute;
+                            background-color: White;
+                            text-align: left;
+                            display: none;
+                            z-index: 200;
+                            width: 260px;
+                        }
+
+                        .HoverContainer td {
+                            padding: 5px;
+                        }
+
+                        .HoverContainer .ItemClass {
+                            padding-right: 10px;
+                            padding-left: 10px;
+                            vertical-align: top;
+                        }
+
+                        .HoverContainer a {
+                            text-decoration: none;
+                        }
+
+                        .HoverContainer a .SName {
+                            text-decoration: underline;
+                            padding-left: 5px;
+                            vertical-align: top;
+                        }
+
+                        table.HoverContainer a span.SName {
+                            font-size: 8pt;
+                        }
+
+                        .CalContainer {
+                            width: 150px;
+                        }
+
+                        #NFContainerContainer {
+                            width: 215px;
+                            overflow-y: auto;
+                            overflow-x: hidden;
+                            position: absolute;
+                            display: none;
+                            border: 1px solid gray;
+                        }
+
+                        #NFContainerContainer table {
+                            display: block;
+                            border: none;
+                            position: static;
+                            width: 100%;
+                            background-color: White;
+                            text-align: left;
+                        }
+                    </style>
+
+                    <div class="container-5">
+                        <p></p>
+                        <p></p><pre><span style="font-size: 36px; font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong>Speakers and Sessions</strong></span></pre>
+                        <p></p>
+                        <p><span style="font-size: 36px; font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong></strong></span><span style="font-family: Helvetica, Arial, sans-serif;"><span style="font-size: 24px;"><span style="color: #3f3f3f;"><strong>Keynote Speakers<br></strong></span></span>
+                            </span>
+                        </p>
+                        <p><span style="font-family: Helvetica, Arial, sans-serif;"><span style="font-size: 16px;"><span style="color: #3f3f3f;"></span></span>
+                            </span>
+                        </p>
+
+                        <p style="line-height: 28px;"><span style="font-family: Helvetica, Arial, sans-serif;"><span style="font-size: 16px;"><span style="color: #3f3f3f;"><strong>Maria Giudice</strong>: Change, connect, contribute<br><strong>Melissa Schmidt &amp; Todd Nicol</strong>: Customer Panel<br><strong>John Maeda</strong> (<a href="http://www.maedastudio.com">maedastudio.com</a>): Designers as Leaders<br><strong>JoAnna Cook</strong>: Cows vs. Aliens<br><strong>Katrina Alcorn</strong>: Designing Design at Autodesk<br><strong>Andrew Rohman</strong> (<a href="http://www.invisionapp.com">invisionapp.com</a>): Intro to InVision<br><strong>Erin Bradner &amp; Mike Haley</strong>: Human Interaction in the Age of AI<br><strong>Mary Hope McQuiston</strong>: Igniting Gen Z&nbsp;<br></span></span>
+                            </span>
+                        </p>
+                        <p></p>
+                        <div class="content-block">
+                            <p></p>
+                            <p style="line-height: 28px;"><span style="font-size: 36px; font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong></strong></span><span style="font-family: Helvetica, Arial, sans-serif;"><span style="font-size: 24px;"><span style="color: #3f3f3f;"><strong>Breakout Sessions&nbsp;<br></strong></span></span>
+                                </span>
+                            </p>
+                            <p style="line-height: 28px;"><span style="font-family: Helvetica, Arial, sans-serif;"><span style="font-size: 16px;"><span style="color: #3f3f3f;">In an effort to present as much rich content as possible, the selection team asked some Autodeskers to pair up and collaborate on a presentation together when there was a significant connection between two proposals. That's why you’ll see that there are some presentations with two authors listed. These are special cases. Our general rule, however, is that X Summit sponsors only the first author of a proposal.&nbsp;</span></span>
+                                </span>
+                            </p>
+                            <table style="width: 1100px; height: 256px;" cellpadding="2" cellspacing="2">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Primary Speaker</strong></td>
+                                        <td><strong>Session Title</strong></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Adam Felt</strong><br>
+                                        </td>
+                                        <td>Simple is not simple, unless you ask the right questions<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Alan Ho</strong><br>
+                                        </td>
+                                        <td>A “designer-safe” toolkit to building measureable prototypes<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Alec Shuldiner</strong><br>
+                                        </td>
+                                        <td>Building (smart) bridges<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Amy Bunszel</strong><br>
+                                        </td>
+                                        <td>Building cohesive products with cohesive teams<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Amy Knobbs,<br>Aino Horsma</strong><br>
+                                        </td>
+                                        <td>NSX Practice<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;<strong>Arno Zink</strong></td>
+                                        <td>&nbsp;Forge Design Graph as a Service&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Brian Souder</strong><br>
+                                        </td>
+                                        <td>Product Usage Data + Data Science + Qualitative Release = SUCCESS<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Brett Johnson</strong><br>
+                                        </td>
+                                        <td>Are we selling relationships or products?<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> <strong>Capra J'neva</strong><br>
+                                        </td>
+                                        <td>Designing the digital assistant<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Catrin Hughes</strong><br>
+                                        </td>
+                                        <td>Using tech to speak like a person<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Chris Rohde</strong><br>
+                                        </td>
+                                        <td>Experience Visions: Connecting What to How and Why<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Christy Canida</strong><br>
+                                        </td>
+                                        <td>No More Hostages: User-First Design, With Learnings From Tinkercad &amp; Instructables<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Claire Paddison</strong><br>
+                                        </td>
+                                        <td>Wrestling UX Debt: Our Story of Identifying and Addressing UX Debt<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Clay Delk</strong></td>
+                                        <td>Systems Thinking for Systems Designers</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Damian Willcox</strong><br>
+                                        </td>
+                                        <td>Comiczilla, the sequel - Strengthening Your Comic Making Muscles (to Communicate &amp; Collaborate...not destroy Tokyo)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Eleven Yang</strong><br>
+                                        </td>
+                                        <td>5 Days of Apprenticeship: My Customer Becomes My Boss!<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Elliott Rosenfeld</strong><br>
+                                        </td>
+                                        <td>Teach In @X Summit<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Elson Lim</strong><br>
+                                        </td>
+                                        <td>Perceptive UI<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Eric Fain</strong><br>
+                                        </td>
+                                        <td>Fueling an Environment for Innovation: How the Fluent Team avoided innovation-crushing culture <br>of date-driven development<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Gaurav Satalkar</strong><br>
+                                        </td>
+                                        <td>Supercharge your Product with predictive design powers<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>George Cao</strong><br>
+                                        </td>
+                                        <td>An Ultimate Guide to Be A Kick-Ass Designer at Autodesk<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Itai Gilo</strong><br>
+                                        </td>
+                                        <td>Offline Experience - Act Locally, Sync Globally<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Jaime Perkins,<br>Bill Sabram</strong><br>
+                                        </td>
+                                        <td>AEX Practice<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Jason Lakis</strong><br>
+                                        </td>
+                                        <td>Desktop Cohesion and the HIG<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Jason Oliveira</strong><br>
+                                        </td>
+                                        <td>System Research for System Design: Grounding Project Quantum in Customer Engagement<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Jeremy Goldman</strong><br>
+                                        </td>
+                                        <td>Everyone’s a critic: How content critiques led to a more cohesive customer experience<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>John Morgan</strong><br>
+                                        </td>
+                                        <td>Extend Your LUMA Skills Through Effective Facilitation<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Jon den Hartog</strong><br>
+                                        </td>
+                                        <td>A Snapshot of Your Customers in 60 Minutes Or Less<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Kai Jiang</strong><br>
+                                        </td>
+                                        <td>Use iOS SiriKit, iOS Speech Recognition API and AWS Lex service to implement user-friendly voice input <br>interface for construction app<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Leslie Predy</strong><br>
+                                        </td>
+                                        <td>A New Toolset for Collaboration<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Lilli Smith</strong><br>
+                                        </td>
+                                        <td>Selfie Pancakes<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Lisa Aufox</strong><br>
+                                        </td>
+                                        <td>Upgrading Collaboration Methods with Intelligent Swarming<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Mehdi Nourbakhsh</strong><br>
+                                        </td>
+                                        <td>Now I understand you: the end of miscommunication between designers and engineers<br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Meiyen Shipek</strong><br></td>
+                                        <td>Unplug and Connect<br></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Melissa Schmidt,<br>Tal Solomon</strong></td>
+                                        <td>Design Research Workshop</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Mike Woods</strong></td>
+                                        <td>No Pie for you! Evolving design processes and visualization standards in a world of machine learning and AI</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Ning Liu</strong></td>
+                                        <td>Into The Wonderland — How Mini-Scale VR Helps Concept Artists Unleash Creativity</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Patty Gale</strong></td>
+                                        <td>Origami: The Designer’s Recess!</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Rebecca Richkus</strong></td>
+                                        <td>If your Agile practice isn't customer-centered, you're doing it wrong</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Rick Rundell</strong></td>
+                                        <td>The Future of Design to Make: Inside-out Innovation in the Autodesk BUILD Space</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Sebastian Casallas</strong></td>
+                                        <td>Creating comfortable and engaging VR experiences, a case study of Autodesk Revit Live</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Susanne Kaufmann</strong></td>
+                                        <td>If it’s Cloudy it will rain - Resilient UX</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Thijs Bernolet</strong></td>
+                                        <td>HIG Code: a technical overview of the Autodesk design system</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Tobias Hathorn</strong></td>
+                                        <td>From Empathy to Data: Methods to Build a High-Fidelity Understanding of Your Customers</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Tom Wujec</strong></td>
+                                        <td>The Future of Making Things Workshop</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Val Sanders</strong></td>
+                                        <td>Walk in Her Shoes</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Vincent Tourangeau</strong></td>
+                                        <td>3D in Three Dimensions</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Will Secor</strong></td>
+                                        <td>Broken AF: Dev and UX working together to design for failure states</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>&nbsp;</p>
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+                        var popup_stuff = new Array([j$("#lnkAddCal"), j$("#tdCal"), j$("#ctl00_ContentPlaceHolder1_lstCal"), "#"]);
+                    </script>
+
+                    <div class="register-btn-bottom">
+                        <table align="right">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="grButtonLeft"></td>
+                                                    <td class="grButtonMid">
+                                                        <a id="ctl00_btnRegBottom" class="grButtonText" href="/events/x-summit-2017-registration-/registration-893d048f2bf94cb680449de2e5892c0c.aspx">Register Now</a></td>
+                                                    <td class="grButtonRight"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer.ejs %>
+    </footer>
+
+</body>
+
+</html>

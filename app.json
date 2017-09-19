@@ -1,0 +1,6 @@
+{
+  "name": "X-Summit '17 Measurable Prototype Workshop",
+  "description": "A X-Summit themed Node.js prototype",
+  "repository": "https://git.autodesk.com/hoa/x-summit17",
+  "keywords": ["node", "express", "heroku", "x-summit"]
+}

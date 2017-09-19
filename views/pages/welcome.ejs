@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/measures.ejs %>
+    <% include ../partials/head.ejs %>
+</head>
+
+<body>
+
+    <header>
+        <% include ../partials/nav.ejs %>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <div class="top-image"></div>
+
+            <div class="middle clearfix">
+
+                <div id="ctl00_divSocialMediaShareBar"></div>
+
+                <div class="clear">
+
+                    <a id="content" name="content"></a>
+
+                    <style type="text/css">
+                        .HoverContainer {
+                            border: 1px solid gray;
+                            position: absolute;
+                            left: 0px;
+                            background-color: White;
+                            text-align: left;
+                            display: none;
+                            z-index: 200;
+                            width: 260px;
+                        }
+
+                        div.layout-2 li.when table.HoverContainer,
+                        div.layout-1 li.when table.HoverContainer {
+                            width: 260px;
+                        }
+
+                        div.layout-2 li.when table.HoverContainer td,
+                        div.layout-1 li.when table.HoverContainer td {
+                            text-align: left;
+                        }
+
+                        div.layout-2 li.when table.CalContainer,
+                        div.layout-1 li.when table.CalContainer {
+                            width: 150px;
+                        }
+
+                        .HoverContainer td {
+                            padding: 5px;
+                        }
+
+                        .HoverContainer .ItemClass {
+                            padding-right: 10px;
+                            padding-left: 10px;
+                            vertical-align: top;
+                        }
+
+                        .HoverContainer a {
+                            text-decoration: none;
+                        }
+
+                        .HoverContainer a .SName {
+                            text-decoration: underline;
+                            padding-left: 5px;
+                            vertical-align: top;
+                        }
+
+                        table.HoverContainer a span.SName {
+                            font-size: 8pt;
+                        }
+
+                        .CalContainer {
+                            width: 150px;
+                        }
+
+                        #NFContainerContainer {
+                            width: 215px;
+                            overflow-y: auto;
+                            overflow-x: hidden;
+                            position: absolute;
+                            display: none;
+                            border: 1px solid gray;
+                        }
+
+                        #NFContainerContainer table {
+                            display: block;
+                            border: none;
+                            position: static;
+                            width: 100%;
+                            background-color: White;
+                            text-align: left;
+                        }
+                    </style>
+
+                    <script language="javascript">
+                        var _vCalUrl = "/Events/Info/AddToCalendar.aspx?e=" + '893d048f-2bf9-4cb6-8044-9de2e5892c0c' + "&cal_type=1";
+                        var _iCalUrl = "/Events/Info/AddToCalendar.aspx?e=" + '893d048f-2bf9-4cb6-8044-9de2e5892c0c' + "&cal_type=2";
+                        var _CustUrl = '';
+                        var _CustLocUrl = '';
+                        var _WeatherUrl = 'http://www.weather.com/weather/today/l/89109:4:US';
+                        var _EmailToPlnrUrl = "/Events/Info/EmailToPlanner.aspx?" + 'e=893d048f-2bf9-4cb6-8044-9de2e5892c0c';
+                    </script>
+
+                    <script language="javascript">
+                        function vCalendar() {
+                            document.location = _vCalUrl;
+
+                        }
+
+                        function iCalendar() {
+                            document.location = _iCalUrl;
+                        }
+
+                        function CustPopLocationMap() {
+                            newWindow = window.open(_CustLocUrl, "popup", "height=700, width=880, menubar, scrollbars, resizable, status");
+                        }
+
+                        function CustPopMap() {
+                            newWindow = window.open(_CustUrl, "popup", "height=700, width=880, menubar, scrollbars, resizable, status");
+                        }
+
+                        function PopWeather() {
+                            newWindow = window.open(_WeatherUrl, "popup", "height=700, width=880, menubar, scrollbars, resizable, status");
+                        }
+
+                        function PopEmailToPlanner() {
+                            newWindow = window.open(_EmailToPlnrUrl, "popup", "height=620, width=840, menubar, scrollbars, resizable, status");
+                        }
+                    </script>
+
+                    <!--
+                    <p></p>
+                    <div class="html-editor-table-container">
+                        <link rel="stylesheet" type="text/css" href="http://aucache.autodesk.com/jquery-tools/slick-carousel/slick.css">
+                        <link rel="stylesheet" type="text/css" href="http://aucache.autodesk.com/jquery-tools/slick-carousel/slick-theme.css">
+
+                        <style>
+                            div.single-column div.navigation {
+                                width: 960px;
+                                background: url(https://custom.cvent.com/FDBB345248B94F40BFFFCEF2FBE054E4/pix/33f0ac5763b84ce7b415927259f5e733.jpg) repeat-x center bottom;
+                                height: 76px;
+                                float: none !important;
+                                position: absolute;
+                                padding: 15px 0 !important;
+                                margin: -415px auto 0px auto;
+                            }
+
+                            div.single-column div.header #HeaderImage1 {
+                                margin: 0 auto !important;
+                                float: none !important;
+                                display: none;
+                            }
+
+                            div.single-column div.header {
+                                width: 100%;
+                                adding: 0px;
+                                text-align: center;
+                                position: relative;
+                            }
+
+                            .rotating-carousel {
+                                margin-left: -40px;
+                                margin-top: -318px;
+                                width: 960px;
+                                height: 280px;
+                                position: absolute;
+                            }
+
+                            .rotating-carousel div {
+                                visibility: hidden;
+                            }
+
+                            button.slick-arrow {
+                                display: none!important;
+                            }
+
+                            .slick-dots {
+                                bottom: -16px;
+                                z-index: 1001;
+                            }
+
+                            .slick-dots li {
+                                margin: 0 0 0 -2px;
+                            }
+
+                            .slick-dots li button:before {
+                                color: #DDDDDD;
+                                font-size: 25px;
+                                opacity: .5;
+                                text-shadow: -1px -1px 0 #999999, 1px -1px 0 #999999, -1px 1px 0 #999999, 1px 1px 0 #999999;
+                            }
+
+                            .slick-dots li.slick-active button:before {
+                                color: white;
+                                opacity: 1;
+                            }
+                        </style>
+
+                        <div class="rotating-carousel slick-initialized slick-slider" role="toolbar"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: inline-block;">Previous</button>
+                            <div aria-live="polite" class="slick-list draggable" style="visibility: visible;">
+                                <div class="slick-track" style="opacity: 1; visibility: visible; width: 4800px; left: -960px;" role="listbox">
+                                    <div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="visibility: visible; width: 960px;" tabindex="-1"><img src="https://custom.cvent.com/FDBB345248B94F40BFFFCEF2FBE054E4/pix/cb3ac75223a743348b1d9ee283708957.png"></div>
+                                    <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="visibility: visible; width: 960px;"
+                                        tabindex="-1" role="option" aria-describedby="slick-slide00"><img src="https://custom.cvent.com/FDBB345248B94F40BFFFCEF2FBE054E4/pix/f33f2640de554fbab4dbea4da24500e7.png"></div>
+                                    <div class="slick-slide" data-slick-index="1" aria-hidden="true" style="visibility: visible; width: 960px;"
+                                        tabindex="-1" role="option" aria-describedby="slick-slide01"><img src="https://custom.cvent.com/FDBB345248B94F40BFFFCEF2FBE054E4/pix/04edf2b0ef444a0cb383869048d2b518.png"></div>
+                                    <div class="slick-slide" data-slick-index="2" aria-hidden="true" style="visibility: visible; width: 960px;"
+                                        tabindex="-1" role="option" aria-describedby="slick-slide02"><img src="https://custom.cvent.com/FDBB345248B94F40BFFFCEF2FBE054E4/pix/cb3ac75223a743348b1d9ee283708957.png"></div>
+                                    <div class="slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" style="visibility: visible; width: 960px;"
+                                        tabindex="-1"><img src="https://custom.cvent.com/FDBB345248B94F40BFFFCEF2FBE054E4/pix/f33f2640de554fbab4dbea4da24500e7.png"></div>
+                                </div>
+                            </div>
+
+                            <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: inline-block;">Next</button>
+                            <ul class="slick-dots" style="display: block;" role="tablist">
+                                <li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true" aria-controls="navigation00" id="slick-slide00"><button type="button" data-role="none" role="button" aria-required="false" tabindex="0">1</button></li>
+                                <li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation01" id="slick-slide01" class=""><button type="button" data-role="none" role="button" aria-required="false" tabindex="0">2</button></li>
+                                <li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation02" id="slick-slide02" class=""><button type="button" data-role="none" role="button" aria-required="false" tabindex="0">3</button></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <p></p>
+                    -->
+
+                    <div class="summary clear">
+
+                        <p>
+                        </p>
+                        <div class="html-editor-table-container">
+                            <p>
+                                <style>
+                                    p {
+                                        line-height: 28px;
+                                    }
+                                </style>
+                            </p><pre><span style="font-size: 36px; font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong>WELCOME TO AUTODESK X</strong></span></pre>
+                            <p></p>
+
+                            <p>
+                                <span style="font-size: 36px; font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong></strong></span>
+                                <span style="font-family: Helvetica, Arial, sans-serif;"><span style="font-size: 16px;"><span style="color: #3f3f3f;"><strong>Autodesk X is the point of convergence, and cohesion, driving the unified Autodesk experience customers need now.</strong>&nbsp;</span></span></span>
+                                <span style="font-family: Helvetica, Arial, sans-serif;">&nbsp;</span>
+                            </p>
+
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">How do we move towards a more cohesive, unified customer experience at Autodesk?<br>How can we collaborate to create the best customer experiences together?<br>How can we uncover the common languages and processes that bring together XD, PM, and&nbsp;ENG?<br>How can we define and measure quality experiences for our customers?<br>How do we deliver outstanding experiences to customers across desktop, mobile and the cloud?<br></span></p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">Join us and connect with like-minded forward thinkers, multi-disciplinary designers, and make-it-happen makers. </span></p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">Connect with us on slack: <a href="https://autodesk.slack.com/archives/C4VKYS45N">#adsk-xsummit17</a>.</span></p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><br>To guide your thoughts, we have three themes that encapsulate Autodesk X:</span></p>
+
+                            <h3 style="margin-left: 36pt;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 18px; color: #3f3f3f;"><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong>HIG FIDELITY</strong></span></span></h3>
+                            <p style="margin-left: 36pt;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">CONNECT, CONTRIBUTE, UNIFY</span></p>
+                            <p style="margin-left: 36pt;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">Design is the connective tissue. We must come together with a common voice and visual language to unify experiences across our products and around the world. This track is for the connectors, the pattern makers, and the standard bearers that make us distinctively Autodesk.<br>Read more about HIG: <a href="http://hig.autodesk.com/">hig.autodesk.com</a><br></span></p>
+
+                            <h3 style="margin-left: 36pt;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 18px; color: #3f3f3f;"><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong>MAD SKILLS</strong></span></span></h3>
+                            <p style="margin-left: 36pt;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">CO-CREATE, COLLABORATE, COOPERATE, BUILD SKILLS</span></p>
+                            <p style="margin-left: 36pt;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">Let’s activate Autodesk's most valuable resource: each other. Share what you know with your peers. Learn what you don't know from the best. Let’s get smarter together as we all work towards a seamless Autodesk customer experience.<br></span></p>
+
+                            <h3 style="margin-left: 36pt;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 18px; color: #3f3f3f;"><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong>VIEWS</strong></span></span></h3>
+                            <p style="margin-left: 36pt;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">ZOOM-IN, ZOOM-OUT</span></p>
+                            <p style="margin-left: 36pt;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">It’s about the big picture, the close-up, and the juxtaposition between them. This track is about the connections between the low-level details and the high ideals that motivate us, drive our design practice, and define the Autodesk experience.<br></span></p>
+
+                            <div id="u21" class="ax_default paragraph b">
+                                <div id="u21_div" class="b"></div>
+                                <div id="u21_text" class="text b" style="transform-origin: 135px 118.5px 0px;">
+                                    <p style="font-size: 14px;" class="b" id="cache55"><span style="font-family: &quot;Artifakt Element&quot;; font-weight: 700;" class="b" id="cache56">HIG FIDELITY</span></p><p class="b" id="cache57" style=""><span style="font-family: &quot;Artifakt Element&quot;; font-weight: 500; font-size: 12px;" class="b" id="cache58">CONNECT, CONTRIBUTE, UNIFY</span></p><p style="font-size: 14px;" class="b" id="cache59"><span style="font-family: &quot;Artifakt Element&quot;; font-weight: 500;" class="b" id="cache60"><br class="b" id="cache61" style=""></span></p><p style="font-size: 14px;" class="b" id="cache62"><span style="font-family: &quot;Artifakt Element&quot;; font-weight: 500;" class="b" id="cache63">Design is the connective tissue. We must come together with a common voice and visual language to unify experiences across our products and around the world. This track is for the connectors, the pattern makers, and the standard bearers that make us distinctively Autodesk.</span></p><p style="font-size: 14px;" class="b" id="cache64"><span style="font-family: &quot;Artifakt Element&quot;; font-weight: 500;" class="b" id="cache65">Read more about HIG: </span><a id="u22" class="link b" tabindex="0" style="cursor: pointer;"><span style="font-family: &quot;Artifakt Element&quot;; font-weight: 500; color: rgb(6, 150, 215);" class="b" id="cache66">hig.autodesk.com</span></a></p>
+                                </div>
+                            </div>
+
+                            <div id="u23" class="ax_default paragraph b">
+                                <div id="u23_div" class="b"></div>
+                                <div id="u23_text" class="text b" style="transform-origin: 135px 107px 0px;">
+                                    <p style="font-size: 14px;" class="b" id="cache67"><span style="font-family: &quot;Artifakt Element&quot;; font-weight: 700;" class="b" id="cache68">MAD SKILLS</span></p><p style="font-size: 12px;" class="b" id="cache69"><span style="font-family: &quot;Artifakt Element&quot;; font-weight: 500;" class="b" id="cache70">CO-CREATE, COLLABORATE, COOPERATE, BUILD SKILLS</span></p><p style="font-size: 14px;" class="b" id="cache71"><span style="font-family: &quot;Artifakt Element&quot;; font-weight: 500;" class="b" id="cache72"><br class="b" id="cache73" style=""></span></p><p style="font-size: 14px;" class="b" id="cache74"><span style="font-family: &quot;Artifakt Element&quot;; font-weight: 500;" class="b" id="cache75">Let’s activate Autodesk's most valuable resource: each other. Share what you know with your peers. Learn what you don't know from the best. Let’s get smarter together as we all work towards a seamless Autodesk customer experience.</span></p>
+                                </div>
+                            </div>
+
+
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">You're invited to mix, mesh, and meld into the mosaic at X Summit 2017 in Toronto, Canada!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><strong>SEE YOU IN THE 6IX. <br> </strong>(<a href="https://www.youtube.com/watch?v=pjMLvHQJU40">6ix – pronounced: ‘six’, nickname for Toronto.</a>)</span></p>
+                            <h3><pre><span style="font-family: Helvetica, Arial, sans-serif;"><strong style="font-size: 22px;"><br>Maria Giudice</strong>&nbsp;<br><span style="font-size: 16px;">Vice President, Experience Design at Autodesk</span></span></pre><p><span style="font-family: Helvetica, Arial, sans-serif;"></span></p></h3>
+                            <h3></h3>
+
+                        </div>
+                        <p></p>
+
+                    </div>
+
+                    <div class="register-btn-bottom">
+                        <table align="right">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="grButtonLeft"></td>
+                                                    <td class="grButtonMid">
+                                                        <a id="ctl00_btnRegBottom" class="grButtonText" href="/events/x-summit-2017-registration-/registration-893d048f2bf94cb680449de2e5892c0c.aspx">Register Now</a></td>
+                                                    <td class="grButtonRight"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer.ejs %>
+    </footer>
+
+</body>
+
+</html>

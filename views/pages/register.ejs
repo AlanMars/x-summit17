@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/measures.ejs %>
+        <% include ../partials/head.ejs %>
+</head>
+
+<body>
+
+    <header>
+        <% include ../partials/nav.ejs %>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <div class="top-image" style="background: url(/img/x-summit-hero-02.png)"></div>
+
+            <div class="clear">
+
+                <div class="error-msg">
+                    <div id="ctl00_ContentPlaceHolder1_ValidationSummary1" style="color:Red;display:none;" tabindex="-1"></div>
+                </div>
+
+                <div style="margin-top: 10px">
+                    <p><span style="font-size: 16px;">Registering as an attendee means that you, your manager, and your division/group leadership approve the costs associated with your attendance at X Summit 2017.</span></p>
+                    <p><span style="font-size: 16px;">Costs include:</span></p>
+                </div>
+
+                    <style>
+                        .introduction {
+                            border-width: 0px;
+                            border-radius: 50%;
+                            background-color: #1da1f2;
+                            height: 120px;
+                            width: 120px;
+                            font-family: 'Artifakt Element';
+                            font-weight: 400;
+                            font-style: normal;
+                            font-size: 14px;
+                            text-align: center;
+                            line-height: normal;
+                        }
+
+                        .introduction-img {
+                           padding: 20px;
+                        }
+                    </style>
+                    <section class="MOD_LIGHTBOXIMGX4">
+                        <div data-layout="_r">
+                            <div data-layout="al8 de4">
+                                <div class="AP_lightbox introduction" aria-haspopup="true">
+                                    <figure>
+                                        <img class="introduction-img" src="/img/icons/icon-ticket.svg" alt="">
+                                        <figcaption>$500 USD ticket</figcaption>
+                                    </figure>
+                                </div>
+                                <div>
+                                    <h3>$500 USD ticket</h3>
+                                    <h6>cross-charged to your division upon completion of your registration</h6>
+                                </div>
+                            </div>
+
+                            <div data-layout="al8 de4">
+                                <div class="AP_lightbox introduction" aria-haspopup="true">
+                                    <figure>
+                                        <img class="introduction-img" src="/img/icons/icon-travel.svg" alt="">
+                                        <figcaption>Travel</figcaption>
+                                    </figure>
+                                </div>
+                                <div>
+                                    <h3>Travel</h3>
+                                    <h6>including flights, taxis, etc.</h6>
+                                </div>
+                            </div>
+
+                            <div data-layout="al8 de4">
+                                <div class="AP_lightbox introduction" aria-haspopup="true">
+                                    <figure>
+                                        <img class="introduction-img" src="/img/icons/icon-incidentals.svg" alt="">
+                                        <figcaption>Incidental costs</figcaption>
+                                    </figure>
+                                </div>
+                                <div>
+                                    <h3>Incidental costs</h3>
+                                    <h6>including non-conference meals, entertainment, etc.</h6>
+                                </div>
+                            </div>
+
+                            <div data-layout="al8 de4">
+                                <div class="AP_lightbox introduction" aria-haspopup="true">
+                                    <figure>
+                                        <img class="introduction-img" src="/img/icons/icon-accommodation.svg" alt="">
+                                        <figcaption>Accommodation</figcaption>
+                                    </figure>
+                                </div>
+                                <div>
+                                    <h3>Accommodation</h3>
+                                    <h6>including hotel at $289 CAD (approximately $215 USD) per night
+                                        Incidental costs
+                                        including non-conference meals, entertainment, etc.
+                                        The hotel booking link will be provided in your confirmation email.</h6>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+            </div>
+
+            <style>
+                .register-rule {
+                    background:inherit;
+                    background-color:rgba(252, 248, 227, 1);
+                    box-sizing:border-box;
+                    border-width:2px;
+                    border-style:solid;
+                    border-color:rgba(250, 235, 204, 1);
+                    border-radius:4px;
+                    margin-top: 10px;
+                    box-shadow:none;
+                    text-rendering: optimizeLegibility;
+                    word-wrap: break-word;
+                }
+
+                .description {
+                    margin-top: 10px;
+                    font-family: 'Artifakt Element';
+                    font-weight: 500;
+                    font-size: 12px;
+                    font-style: normal;
+                    font-kerning: normal;
+                    color: #8A6D3B;
+                    text-align: center;
+                    border-width: 0px;
+                }
+            </style>
+            <div class="register-rule">
+                <div class="description">
+                    <p><span>Do not register as an attendee without the approval of your manager, and the invitation to do so from your divisional leadership.</span></p>
+                </div>
+
+            </div>
+
+            <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'> -->
+            <style>
+                .register-box {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    background: #f1f1f1;
+                }
+
+                .register-box-description {
+                    font-family: "Artifakt Element";
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: rgb(10, 19, 28);
+                    padding-top: 10px;
+                    padding-left: 10px;
+                    padding-bottom: 20px;
+                }
+
+                .register-box-field {
+                    border-color: gray;
+                    border-bottom: 1px solid;
+                    margin-bottom: 10px;
+                    padding: 1px 10px;
+                }
+
+                .register-box-button{
+                    border: none;
+                    border-radius: 4px;
+                    padding: 1em;
+                    text-align: center;
+                    text-decoration: none;
+                    text-rendering: optimizeLegibility;
+                    display: inline-block;
+                    font-family: "Artifakt Element";
+                    font-size: 14px;
+                    font-weight: 700;
+                    margin: 15px 5px;
+                    cursor: pointer;
+                    float: right;
+                    width: 100px;
+                }
+
+                .register-box-button-cancel {
+                    background-color: rgba(121, 147, 176, 1);
+                }
+
+                .register-box-button-next {
+                    background-color: rgba(6, 150, 215, 1);
+                }
+
+                .register-box-button-next span {
+                    cursor: pointer;
+                    display: inline-block;
+                    position: relative;
+                    transition: 0.5s;
+                }
+
+                .register-box-button-next span:after {
+                    content: '\00bb';
+                    position: absolute;
+                    opacity: 0;
+                    top: 0;
+                    right: -15px;
+                    transition: 0.5s;
+                }
+
+                .register-box-button-next:hover span {
+                    padding-right: 25px;
+                }
+
+                .register-box-button-next:hover span:after {
+                    opacity: 1;
+                    right: 0;
+                }
+
+                .register-box-form{
+                    font-family: 'Open Sans Condensed', arial, sans;
+                    padding: 30px;
+                    /*background: #FFFFFF;*/
+                    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+                    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+                    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+                }
+
+                .register-box-form h2{
+                    background: #4D4D4D;
+                    text-transform: uppercase;
+                    font-family: 'Open Sans Condensed', sans-serif;
+                    color: #797979;
+                    font-size: 14px;
+                    font-weight: 100;
+                    padding: 20px;
+                    margin: -30px -30px 30px -30px;
+                }
+
+                .register-box-form input[type="text"],
+                .register-box-form input[type="date"],
+                .register-box-form input[type="datetime"],
+                .register-box-form input[type="email"],
+                .register-box-form input[type="number"],
+                .register-box-form input[type="search"],
+                .register-box-form input[type="time"],
+                .register-box-form input[type="url"],
+                .register-box-form input[type="password"],
+                .register-box-form textarea,
+                .register-box-form select
+                {
+                    box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    outline: none;
+                    display: block;
+                    width: 100%;
+                    padding: 7px;
+                    border: none;
+                    border-bottom: 1px solid #424242;
+                    background: transparent;
+                    margin-bottom: 10px;
+                    font: 14px Arial, Helvetica, sans-serif;
+                    height: 45px;
+                }
+
+                .register-box-form input[type="text"]:focus,
+                .register-box-form input[type="date"]:focus,
+                .register-box-form input[type="datetime"]:focus,
+                .register-box-form input[type="email"]:focus,
+                .register-box-form input[type="number"]:focus,
+                .register-box-form input[type="search"]:focus,
+                .register-box-form input[type="time"]:focus,
+                .register-box-form input[type="url"]:focus,
+                .register-box-form input[type="password"]:focus,
+                .register-box-form textarea:focus,
+                .register-box-form select:focus
+                {
+                    box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    outline: none;
+                    display: block;
+                    width: 100%;
+                    padding: 7px;
+                    border: none;
+                    border-bottom: 2px solid #424242;
+                    background: transparent;
+                    margin-bottom: 10px;
+                    font: 14px Arial, Helvetica, sans-serif;
+                    height: 45px;
+                }
+
+                .register-box-form textarea{
+                    resize:none;
+                    overflow: hidden;
+                }
+
+                .register-box-form input[type="button"],
+                .register-box-form input[type="submit"]{
+                    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+                    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+                    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+                    background-color: #2CBBBB;
+                    border: 1px solid #27A0A0;
+                    display: inline-block;
+                    cursor: pointer;
+                    color: #FFFFFF;
+                    font-family: 'Open Sans Condensed', sans-serif;
+                    font-size: 14px;
+                    padding: 8px 18px;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                }
+
+                .register-box-form input[type="button"]:hover,
+                .register-box-form input[type="submit"]:hover {
+                    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+                    background-color:#34CACA;
+                }
+
+                .register-box-form-button {
+                    margin-top: auto;
+                    margin-bottom: 80px;
+                }
+            </style>
+            <div class="register-box">
+                <div class="register-box-form">
+                    <div class="register-box-description">
+                        <h6><span>Please fill in the information below, then click Next to proceed.</span></h6>
+                    </div>
+                    <form action="/end/">
+                        <div class="form-group">
+                            <input type="text" name="field-first-name" placeholder="First Name" />
+                            <input type="text" name="field-last-name" placeholder="Last Name" />
+                            <input type="email" name="field-email" placeholder="Email Address" />
+                            <input type="text" name="field-voucher" placeholder="Voucher Code" />
+                        </div>
+
+                        <div class="register-box-form-button">
+                            <button type="submit" class="register-box-button register-box-button-next"><span>Next</span></button>
+                            <button type="reset" class="register-box-button register-box-button-cancel"><span>Cancel</span></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+<!-- Version 2
+            <div class="register-box">
+
+                <div class="register-box-description">
+                    <p><span>Please fill in the information below, then click Next to proceed.</span></p>
+                </div>
+
+                <div>
+                    <div class="register-box-field">
+                        <p><span>First name</span></p>
+                    </div>
+
+                    <div class="register-box-field">
+                        <p><span>Last name</span></p>
+                    </div>
+
+                    <div class="register-box-field">
+                        <p><span>Email address</span></p>
+                    </div>
+
+                    <div class="register-box-field">
+                        <p><span>Voucher code</span></p>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="register-box-button register-box-button-next"><span>Next</span></button>
+                    <button class="register-box-button register-box-button-cancel"><span>Cancel</span></button>
+                </div>
+
+            </div>
+
+-->
+<!--
+            <div class="reg-process-content">
+
+                <div class="reg-confirmation-login reg-section">
+                    <div class="reg-field-container">
+                        <div class="reg-process-row">
+                            <div class="reg-field-left-column">
+                                <label class="reg-required-field" for="ctl00_ContentPlaceHolder1_tbxFirstName">*First Name:</label>
+                            </div>
+                            <div class="reg-field-right-column">
+                                <input name="ctl00$ContentPlaceHolder1$tbxFirstName" type="text" maxlength="30" id="ctl00_ContentPlaceHolder1_tbxFirstName" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reg-field-container">
+                        <div class="reg-process-row">
+                            <div class="reg-field-left-column">
+                                <label class="reg-required-field" for="ctl00_ContentPlaceHolder1_tbxLastName">*Last Name:</label>
+                            </div>
+                            <div class="reg-field-right-column">
+                                <input name="ctl00$ContentPlaceHolder1$tbxLastName" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_tbxLastName">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reg-field-container">
+                        <div class="reg-process-row">
+                            <div class="reg-field-left-column">
+                                <label for="ctl00_ContentPlaceHolder1_tbxEmail" id="ctl00_ContentPlaceHolder1_lblEmail" class="reg-required-field">*Email Address:</label>
+                            </div>
+                            <div class="reg-field-right-column">
+                                <input name="ctl00$ContentPlaceHolder1$tbxEmail" type="text" maxlength="80" id="ctl00_ContentPlaceHolder1_tbxEmail">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reg-field-container">
+                        <div class="reg-process-row">
+                            <div class="reg-field-left-column">
+                                <label for="ctl00_ContentPlaceHolder1_tbxVoucherCode" id="ctl00_ContentPlaceHolder1_lblVoucherCode" class="reg-required-field">*Voucher Code:</label>
+                            </div>
+                            <div class="reg-field-right-column">
+                                <input name="ctl00$ContentPlaceHolder1$tbxVoucherCode" type="text" maxlength="30" id="ctl00_ContentPlaceHolder1_tbxVoucherCode">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="ctl00_ContentPlaceHolder1_Panel1"></div>
+
+                    <input type="hidden" id="hdnTrigger" name="hdnTrigger" value="">
+                    <input type="hidden" id="hdnProcessStub" name="hdnProcessStub" value="">
+                    <input type="hidden" id="hdnRegistrationOptionId" name="hdnRegistrationOptionId" value="f807727c-c7cb-456b-bbde-940349e7e098">
+
+                    <div class="register-btn-bottom">
+
+-->
+                        <!--*******************************************************
+                                include this file for the registration form buttons
+                            ***********************************************************-->
+<!--
+                        <div class="already-registered-link"></div>
+                        <div class="register-btn-bottom">
+                            <table align="right">
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <table cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="grButtonLeft"></td>
+                                                        <td class="grButtonMid"><a id="ctl00_ContentPlaceHolder1_btnCancel" class="grButtonText" href="http://www.cvent.com/d/85q1s1">Cancel</a>
+                                                        </td>
+                                                        <td class="grButtonRight"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="grButtonLeft"></td>
+                                                        <td class="grButtonMid"><a id="ctl00_ContentPlaceHolder1_btnNext" class="grButtonText cvf-ppback-disableable" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ContentPlaceHolder1$btnNext", "", true, "", "", false, true))'>Next
+                                                            <font face="Arial">►</font></a></td>
+                                                        <td class="grButtonRight"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td id="ctl00_ContentPlaceHolder1_tdPartialSave"></td>
+
+                                        <td id="ctl00_ContentPlaceHolder1_tdPartialSaveNext"></td>
+
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+            <input type="hidden" name="ctl00$ContentPlaceHolder1$hdnSoldOutECT" id="ctl00_ContentPlaceHolder1_hdnSoldOutECT">
+
+            <span id="ctl00_ContentPlaceHolder1_rvFirstName" style="color:Red;display:none;"></span>
+            <span id="ctl00_ContentPlaceHolder1_rvLastName" style="color:Red;display:none;"></span>
+            <span id="ctl00_ContentPlaceHolder1_rvEmail" style="color:Red;display:none;"></span>
+
+            <span id="ctl00_ContentPlaceHolder1_cmpvConfirmEmail" style="color:Red;display:none;"></span>
+            <span id="ctl00_ContentPlaceHolder1_cmpSourceID" style="color:Red;display:none;"></span>
+            <span id="ctl00_ContentPlaceHolder1_rvSourceID" style="color:Red;display:none;"></span>
+            <span id="ctl00_ContentPlaceHolder1_rvVoucherCode" style="color:Red;display:none;"></span>
+            <span id="ctl00_ContentPlaceHolder1_cvCheckInput" style="color:Red;display:none;"></span>
+            <span id="ctl00_ContentPlaceHolder1_cvCheckEvtCTCapacity" style="color:Red;display:none;"></span>
+
+            <span id="ctl00_ContentPlaceHolder1_rvAdminFirstName" style="color:Red;display:none;"></span>
+            <span id="ctl00_ContentPlaceHolder1_rvAdminLastName" style="color:Red;display:none;"></span>
+            <span id="ctl00_ContentPlaceHolder1_rvAdminEmail" style="color:Red;display:none;"></span>
+
+            <span id="ctl00_ContentPlaceHolder1_rvddlRegTypeCategory" style="color:Red;display:none;"></span>
+            <span id="ctl00_ContentPlaceHolder1_rvddRegistrationType" style="color:Red;display:none;"></span>
+            <span id="ctl00_ContentPlaceHolder1_rvddRegTypeGrouped" style="color:Red;display:none;"></span>
+            <span id="ctl00_ContentPlaceHolder1_rvtbxRegistrationType" style="color:Red;display:none;"></span>
+            <span id="ctl00_ContentPlaceHolder1_rvradRegistrationType" style="color:Red;display:none;"></span>
+-->
+
+        </div>
+
+    </main>
+
+    <footer>
+        <% include ../partials/footer.ejs %>
+    </footer>
+
+</body>
+
+</html>

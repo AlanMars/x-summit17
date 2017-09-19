@@ -1,0 +1,40 @@
+{
+  "name": "x-summit17",
+  "version": "1.0.0",
+  "description": "Node.js template using Gulp builder",
+  "engines": {
+    "node": "6.11.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "node index.js",
+    "proxy": "gulp",
+    "test": "node test.js",
+    "start": "npm-run-all --parallel build proxy"
+  },
+  "dependencies": {
+    "ejs": "2.5.6",
+    "express": "4.15.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "npm-run-all": "^4.1.1",
+    "request": "^2.81.0",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.autodesk.com/hoa/x-summit17"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express",
+    "x-summit"
+  ],
+  "license": "MIT"
+}

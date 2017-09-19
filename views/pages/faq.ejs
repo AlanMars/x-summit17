@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/measures.ejs %>
+    <% include ../partials/head.ejs %>
+</head>
+
+<body>
+
+    <header>
+        <% include ../partials/nav.ejs %>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <div class="top-image"></div>
+            <!--
+            <div>
+                <img id="HeaderImage1" class="image-top" title="X Summit 2017 (Registration)" alt="X Summit 2017 (Registration)" src="/img/x-summit-hero.png">
+            </div>
+            -->
+
+            <div class="middle clearfix">
+
+                <div id="ctl00_divSocialMediaShareBar"></div>
+
+                <div class="clear">
+
+                    <a id="content" name="content"></a>
+
+                    <script type="text/javascript">
+                        // focus returns to this element after popup is hidden
+                        var returnFocus;
+                        j$.fn.extend({
+                            social: {
+
+                                // add events to icons from the array
+                                addPopupEvents: function(arr) {
+
+                                    j$(arr).each(function() {
+                                        var icon_id = this[0];
+                                        var td_id = this[1];
+                                        var popup_id = this[2];
+                                        var url = this[3];
+
+                                        // show popup when icons are clicked
+                                        j$(icon_id).click(function(e) {
+                                            j$.fn.social.iconAction(icon_id, td_id, popup_id, url);
+                                            e.stopPropagation();
+                                            e.preventDefault();
+                                        });
+
+                                        // actions for pressing enter and esc on icons
+                                        j$(icon_id).keypress(function(e) {
+                                            if (e.keyCode == 13) // Enter
+                                            {
+                                                j$.fn.social.iconAction(icon_id, td_id, popup_id, url);
+                                                e.preventDefault();
+                                            } else if (e.keyCode == 27) // Esc
+                                                j$.fn.social.removePopup();
+                                        });
+
+                                        // do not hide the popup if blank area on it is clicked
+                                        j$(popup_id).click(function(e) {
+                                            e.stopPropagation();
+                                        });
+
+                                        // remove popup when a link is clicked on popup
+                                        j$(popup_id).find("a").each(function(el) {
+                                            var pClick = this.onclick;
+                                            this.onclick = null;
+                                            j$(this).click(function(e) {
+
+                                                j$.fn.social.removePopup();
+                                                e.stopPropagation();
+                                                if (pClick != undefined)
+                                                    pClick(e);
+                                                //e.preventDefault();
+                                            });
+                                        });
+
+                                        // remove popup if escape is pressed
+                                        j$(popup_id).find("a").keydown(function(e) {
+                                            if (e.keyCode == 27)
+                                                j$.fn.social.removePopup();
+                                        });
+
+                                        // remove popup if tab is pressed on last link
+                                        // do not remove if shift+tab is pressed
+                                        j$(popup_id).find("a:last").keydown(function(e) {
+                                            if (!e.shiftKey && e.keyCode == 9)
+                                                j$.fn.social.removePopup();
+                                        });
+
+                                        // remove popup if shift+tab is pressed on first link
+                                        // do not remove if tab is pressed
+                                        j$(popup_id).find("a:first").keydown(function(e) {
+                                            if (e.shiftKey && e.keyCode == 9)
+                                                j$.fn.social.removePopup();
+                                        });
+
+                                    });
+
+                                    // remove popup if clicked elsewhere
+                                    j$(document).click(function() {
+                                        j$.fn.social.removePopup();
+                                    });
+                                },
+
+                                // first remove all open popups then open one and focus its first link
+                                showPopup: function(pop_id) {
+                                    j$.fn.social.removePopup();
+                                    j$(pop_id).css("display", "block");
+                                    j$(pop_id).find("a:first").focus();
+                                },
+
+                                // remove all open popups
+                                removePopup: function() {
+                                    j$(popup_array).each(function() {
+                                        if (j$(this[2]).css("display") && j$(this[2]).css("display") != "none") {
+                                            j$(this[2]).css("display", "none");
+                                        }
+                                    });
+                                    if (returnFocus) {
+                                        j$(returnFocus).focus();
+                                        returnFocus = undefined;
+                                    }
+                                },
+
+                                iconAction: function(icon_id, td_id, pop_id, url) {
+                                    if (td_id)
+                                        j$(pop_id).appendTo(j$(td_id));
+                                    else
+                                        j$(pop_id).appendTo(j$(icon_id).parent());
+                                    if (url != "" && url != "#") {
+                                        j$(pop_id).find("a").each(function() {
+                                            j$(this).attr("href", url);
+                                        });
+                                    }
+                                    returnFocus = icon_id;
+                                    j$.fn.social.showPopup(pop_id);
+                                }
+
+                            }
+                        });
+
+                        j$(document).ready(function() {
+                            popup_array = popup_stuff;
+                            j$.fn.social.addPopupEvents(popup_array);
+
+                            if (j$("#NFContainerContainer").height() > 150)
+                                j$("#NFContainerContainer").height(150);
+                        });
+                    </script>
+
+                    <style type="text/css">
+                        div.layout-2 li.when table.HoverContainer,
+                        div.layout-1 li.when table.HoverContainer {
+                            width: 260px;
+                        }
+
+                        div.layout-2 li.when table.HoverContainer td,
+                        div.layout-1 li.when table.HoverContainer td {
+                            text-align: left;
+                        }
+
+                        div.layout-2 li.when table.CalContainer,
+                        div.layout-1 li.when table.CalContainer {
+                            width: 150px;
+                        }
+
+                        .HoverContainer {
+                            border: 1px solid gray;
+                            position: absolute;
+                            background-color: White;
+                            text-align: left;
+                            display: none;
+                            z-index: 200;
+                            width: 260px;
+                        }
+
+                        .HoverContainer td {
+                            padding: 5px;
+                        }
+
+                        .HoverContainer .ItemClass {
+                            padding-right: 10px;
+                            padding-left: 10px;
+                            vertical-align: top;
+                        }
+
+                        .HoverContainer a {
+                            text-decoration: none;
+                        }
+
+                        .HoverContainer a .SName {
+                            text-decoration: underline;
+                            padding-left: 5px;
+                            vertical-align: top;
+                        }
+
+                        table.HoverContainer a span.SName {
+                            font-size: 8pt;
+                        }
+
+                        .CalContainer {
+                            width: 150px;
+                        }
+
+                        #NFContainerContainer {
+                            width: 215px;
+                            overflow-y: auto;
+                            overflow-x: hidden;
+                            position: absolute;
+                            display: none;
+                            border: 1px solid gray;
+                        }
+
+                        #NFContainerContainer table {
+                            display: block;
+                            border: none;
+                            position: static;
+                            width: 100%;
+                            background-color: White;
+                            text-align: left;
+                        }
+                    </style>
+
+                    <div class="container-5">
+                        <div class="content-block">
+                            <p></p>
+                            <h2></h2>
+                            <style>
+                                p {
+                                    line-height: 28px;
+                                }
+                            </style><pre><span style="font-size: 36px; font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong>FREQUENTLY ASKED QUESTIONS</strong></span></pre>
+                            <p>&nbsp;</p>
+                            <h2><span style="font-family: Helvetica, Arial, sans-serif; font-size: 24px; color: #3f3f3f;"><strong style="color: #3f3f3f;">General</strong></span></h2>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><strong>Q:</strong> <span style="font-size: 16px;">How can I attend X Summit?</span><br> <strong>A:&nbsp;</strong></span><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><span style="font-size: 16px;">Talk to your manager, and express your interest. Tickets to X Summit are by invitation only. Attendees are selected by managers and leaders throughout Autodesk. All costs associated with attending X Summit, including ticket ($500 USD), hotel, flight, and incidentals must be covered by your cost center.</span></span>
+                            </p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><span style="font-size: 16px;"><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong>Q:&nbsp;</strong></span><span style="font-size: 16px;"><span style="font-family: Helvetica, Arial, sans-serif;"><span style="color: #3f3f3f;"><span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">Where and when is X Summit 2017 taking place?</span></span>
+                                </span>
+                                </span><strong><span style="font-size: 16px;"><span style="font-family: Helvetica, Arial, sans-serif;"><span style="color: #3f3f3f;"><br></span></span></span><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><span style="font-size: 16px;"></span></span></strong>
+                                <span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><span style="font-size: 16px;"><strong>A</strong></span></span><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><strong>:&nbsp;</strong></span>
+                                <span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">The venue for X Summit 2017 is the&nbsp;</span></span>
+                                <span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><a href="http://www.westinharbourcastletoronto.com/"><span style="padding: 0cm; border: 1pt none windowtext;">Westin Harbour Castle</span></a>
+                                </span><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"> hotel in Toronto, Ontario, Canada.&nbsp;The conference takes place September 26-28.&nbsp;</span></span>
+                                </span>
+                                </span>
+                            </p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><span style="font-size: 16px;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><strong>Q:</strong> How do I know if my registration was completed successfully?<br><strong>A:</strong> If your registration is completed successfully, you'll receive an email confirmation.<br></span></span>
+                                </span>
+                                </span>
+                            </p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><span style="font-size: 16px;"><strong>Q:</strong></span></span><span style="font-size: 16px;"><span style="font-family: Helvetica, Arial, sans-serif;"><span style="color: #3f3f3f;"><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"> How do I get the latest news and updates about X Summit?<br></span></span>
+                                </span>
+                                </span><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><span style="font-size: 16px;"><strong>A</strong></span></span><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><strong>:</strong></span>
+                                <span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"> Join us on Slack: <a href="https://autodesk.slack.com/archives/C4VKYS45N" style="font-family: Helvetica, Arial, sans-serif;">#adsk-xsummit17</a></span>
+                                <span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">!</span>
+                            </p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><strong>Q:</strong> I have a question that’s not covered here, what do I do?<br> <strong>A:</strong> Join us on Slack: <a href="https://autodesk.slack.com/archives/C4VKYS45N">#adsk-xsummit17</a>!</span></p>
+                            <h2><span style="font-family: Helvetica, Arial, sans-serif; font-size: 24px; color: #3f3f3f;"><strong> </strong></span></h2>
+                            <h2><span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 24px; color: #3f3f3f;"><strong>Traveling to Toronto</strong></span></h2>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px;"><span style="font-size: 16px;"><strong>Q</strong></span><strong>:</strong></span>
+                                <span style="font-size: 16px;"><span style="font-size: 16px;">&nbsp;<span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">When should I plan to travel to/from X Summit?</span><br></span><strong>A:</strong>&nbsp;
+                                <span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;">Plan to arrive on September 25, and leave September 29 (evening), to get the full X Summit experience.&nbsp;</span>
+                                </span>
+                                </span><span style="background-color: white; font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><span style="font-size: 16px;">The X Summit 2017 program begins at 9 AM on September 26, and it concludes with a closing party on the evening of September 28. There is also a post-summit open house (Connect @MaRS) in the Toronto office on September 29, so we are recommending leaving Toronto the evening of September 29.</span></span>
+                            </p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong>Q:</strong></span><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;">&nbsp;<span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">Do I need a Visa to enter Canada?</span><br></span>
+                                <span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong>A:</strong></span><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;">&nbsp;<span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">Find out here: </span>
+                                <span style="font-family: 'Times New Roman'; font-size: 16px;"><a href="http://www.cbsa-asfc.gc.ca/noncan-eng.html"><span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif;">http://www.cbsa-asfc.gc.ca/noncan-eng.html</span></a>
+                                </span><br></span>
+                            </p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><strong>Q:</strong>&nbsp;</span><span style="color: #3f3f3f;"><span style="background-color: white; font-family: Arial;"><span style="font-size: 16px;">I need an invitation letter for a Visa application to Canada. Where can I get this letter?</span></span>
+                                <span style="background-color: #ffffff; font-family: Arial;"><br></span>
+                                </span><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><strong>A:</strong></span><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;">&nbsp;<span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">You can download the template here: </span>
+                                <span style="font-size: 16px;"><span style="padding: 0cm; border: 1pt none windowtext;"><a href="https://autodesk.box.com/v/XSummit-Visa">https://autodesk.box.com/v/XSummit-Visa</a>.&nbsp;</span><span style="padding: 0cm; border: 1pt none windowtext; color: #3f3f3f;">Please follow the instructions in the box note.</span></span><br></span>
+                                <strong style="color: #3f3f3f; font-family: Helvetica, Arial, sans-serif;"></strong>
+                            </p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><span style="font-size: 16px;"><strong>Q:</strong></span></span><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><span style="color: #3f3f3f;">&nbsp;</span>
+                                <span style="color: #3f3f3f;"><span style="background-color: white;">Which Toronto airport is best for me?</span><span style="background-color: #ffffff;"><br></span></span><strong style="color: #3f3f3f;">A:</strong>&nbsp;Toronto
+                                has two airports you can use:</span>
+                            </p>
+                            <ul style="list-style-type: disc;">
+                                <li><span class="author-215807409" style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">International:&nbsp;</span><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><span><a href="https://www.torontopearson.com/">Toronto Pearson International Airport</a></span></span>
+                                    <span class="author-215807409" style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">&nbsp;(YYZ)</span>
+                                </li>
+                                <li><span class="author-215807409" style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">City Center:&nbsp;</span><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><span><a href="https://www.portstoronto.com/airport.aspx">Toronto Island Billy Bishop</a></span></span>
+                                    <span class="author-215807409" style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">&nbsp;(YTZ)</span>
+                                </li>
+                            </ul>
+                            <div><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">&nbsp;</span></div>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">Billy Bishop airport is in the downtown core of Toronto, so it’s more conveniently located for reaching the Westin Harbour Castle. However, direct long-haul, and international flights do not typically fly in at Billy Bishop. Toronto Pearson is the large international airport, located outside of the city. Not as conveniently located, but will provide the most availability of flights in/out of Toronto for long-haul&nbsp;</span>
+                                <span style="background-color: white; padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><span style="font-size: 16px;">travelers.</span></span>
+                            </p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"> </span><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><span style="font-size: 16px;"><strong>Q:</strong></span></span>
+                                <span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">&nbsp;</span><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><span style="background-color: white;">How do I get to/from the airport?</span>
+                                <span style="background-color: #ffffff;"><br></span>
+                                </span>
+                                <span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><strong>A:</strong>&nbsp;<span style="background-color: white;">Options to/from Pearson International:</span></span>
+                            </p>
+                            <ul>
+                                <li><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><a href="https://www.upexpress.com/"><span style="padding: 0cm; border: 1pt none windowtext;">UP Express</span></a>
+                                    </span><span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">: Train running between Pearson and Union Station, and then a short walk from Union station to the hotel</span></li>
+                                <li><span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"></span><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><span style="font-size: 16px;">Taxi/Limo (flat rates available), queue outside arrivals</span></span>
+                                </li>
+                            </ul>
+                            <div><span style="font-family: Helvetica, Arial, sans-serif;">&nbsp;</span></div>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif;"><span style="font-size: 16px;">&nbsp; &nbsp; &nbsp;Options from Billy Bishop:</span></span>
+                            </p>
+                            <ul>
+                                <li><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #262626;"><a href="https://www.google.ca/maps/dir/Billy+Bishop+Toronto+City+Airport,+2+Eireann+Quay,+Toronto,+ON+M5V+1A1/The+Westin+Harbour+Castle,+Toronto,+Harbour+Square,+Toronto,+ON/@43.634938,-79.3918948,16z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x882b35235593a107:0x42881882560c474!2m2!1d-79.3959577!2d43.6284819!1m5!1m1!1s0x89d4cb2a3431ec1f:0xc9c3571760440328!2m2!1d-79.3757486!2d43.6412114!3e2"><span style="padding: 0cm; border: 1pt none windowtext;">Walk</span></a>
+                                    </span><span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #262626;"> along the Toronto harborfront (about 30-40 mins)</span></li>
+                                <li><span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #262626;"></span><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #262626;"><a href="https://www.portstoronto.com/airport/passenger-information/to-from/airport-shuttle.aspx"><span style="padding: 0cm; border: 1pt none windowtext;">Port Authority</span></a>
+                                    </span><span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #262626;"> shuttle to Union station, then walk to hotel.</span></li>
+                                <li><span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #262626;"></span><span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #262626;">Public transit, TTC streetcar, </span>
+                                    <span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #262626;"><a href="http://www.ttc.ca/Routes/509/Eastbound.jsp"><span style="padding: 0cm; border: 1pt none windowtext;">509 Harbourfront</span></a>
+                                    </span><span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #262626;"> line, eastbound. Exit at Union Station and walk to the hotel.</span></li>
+                                <li><span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #262626;"></span><span style="font-family: Helvetica, Arial, sans-serif; color: #262626;"><span style="font-size: 16px;">Taxi queue outside arrivals.&nbsp;</span></span>
+                                </li>
+                            </ul>
+                            <p style="background: white;"><span style="padding: 0cm; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><strong><br>Q:</strong> How do I find out what else is happening in Toronto?<br></span>
+                                <span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><strong>A:</strong> Here are some helpful websites for planning your trip to Toronto:</span>
+                            </p>
+                            <ul style="list-style-type: disc;">
+                                <li><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px;"><a href="http://www.blogto.com/"><span style="padding: 0cm; border: 1pt none windowtext;">BlogTO</span></a>
+                                    </span>
+                                </li>
+                                <li><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px;"><span style="padding: 0cm; border: 1pt none windowtext;"><a href="https://www.narcity.com/ca/on/toronto">Narcity</a></span></span>
+                                </li>
+                                <li><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px;"><a href="http://www.seetorontonow.com/#sm.00000ra3t61a4ufssrs6mk8gr5l5q"><span><span style="padding: 0cm; border: 1pt none windowtext;"></span></span>
+                                    <span style="padding: 0cm; border: 1pt none windowtext;">Toronto Tourism</span>
+                                    </a>
+                                    </span>
+                                </li>
+                            </ul>
+                            <div><span style="font-family: Helvetica, Arial, sans-serif; font-size: 24px; color: #3f3f3f;"><strong style="color: #595959;"><span style="color: #3f3f3f;">&nbsp;</span></strong>
+                                </span>
+                            </div>
+                            <h2><span style="font-family: Helvetica, Arial, sans-serif; font-size: 24px; color: #3f3f3f;"><strong>Attendees</strong></span></h2>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><strong>Q:</strong>&nbsp;<span style="font-family: Arial, Helvetica, sans-serif;">The Registration site is asking for a “Voucher Code”. Where do I get one</span>
+                                <span style="font-size: 16px;">?</span><br><strong>A:</strong>&nbsp;<span style="font-family: Arial, Helvetica, sans-serif;">When you received your invitation, that email should contain your voucher code. If not, contact the sender</span></span>
+                                <span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;">.&nbsp;</span>
+                            </p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><strong>Q:</strong>&nbsp;<span style="font-family: Arial, Helvetica, sans-serif;">The Registration site won’t let me register with the voucher code I have. What’s going on</span>
+                                <span style="font-size: 16px;">?</span><br><strong>A:&nbsp;<span style="font-family: Arial, Helvetica, sans-serif;"></span></strong><span style="font-family: Arial, Helvetica, sans-serif;">Each voucher code has a maximum limit that is tied to the ticket allocation for your division/group. Once the maximum is reached, the voucher code can no longer be used to register more attendees. Contact the sender of your invite to report your issue. (Selected Invitees and Ticket Allocation numbers mismatch.)</span></span><br></span>
+                            </p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><strong>Q:</strong>&nbsp;<span style="font-family: Arial, Helvetica, sans-serif;">I registered, but now I cannot attend. Can someone else go in my place</span>
+                                <span style="font-size: 16px;">?</span><br><strong>A:&nbsp;<span style="color: #3f3f3f; font-family: Arial, Helvetica, sans-serif;"></span></strong><span style="color: #3f3f3f; font-family: Arial, Helvetica, sans-serif;">Yes. You must un-register from X Summit 2017 first, by revisiting the registration site and signing in with your confirmation number (in your confirmation email). Once you’ve cancelled, another person can use the voucher code to register</span></span>
+                                <span style="font-family: Helvetica, Arial, sans-serif; color: #3f3f3f;">.</span><br></span>
+                            </p>
+                            <h2><span style="font-family: Helvetica, Arial, sans-serif; font-size: 24px; color: #3f3f3f;"><strong style="color: #595959;"><span style="color: #3f3f3f;">Speakers</span><br></strong></span></h2>
+                            <p><span><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px;"><strong>Q:</strong> I have a collaborator, but they didn’t get an invitation from the X Summit. How can they attend? <br> <strong>A:</strong> Only the first author on the proposal (the submitter) is invited by the X Summit to attend, free of charge. Collaborators can reach out through their managers to secure a ticket from their division’s allocation, along with the necessary budget approvals to register as a general attendee of the summit.</span></span>
+                            </p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px;"><strong>Q:&nbsp;</strong>I have collaborators. Can they present with me?<br> <strong>A:</strong> Yes. If your collaborators have secured a ticket to X Summit, you are free to include them in your presentation as you like.</span></p>
+                            <p><span><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px;"><strong>Q:</strong> What is crescent round seating?<br> <strong>A:</strong> <a href="https://harveyspoint.com/wp-content/uploads/2016/12/crescent-round-setup.jpg">https://harveyspoint.com/wp-content/uploads/2016/12/crescent-round-setup.jpg</a></span></span>
+                            </p>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px;"><span style="font-family: Helvetica, Arial, sans-serif;"><strong>Q:</strong> What is theater seating?<br></span><strong>A:</strong> <a href="https://harveyspoint.com/wp-content/uploads/2016/12/theater-setup.jpg">https://harveyspoint.com/wp-content/uploads/2016/12/theater-setup.jpg</a></span>
+                            </p>
+                            <h2><span style="font-family: Helvetica, Arial, sans-serif; font-size: 24px; color: #3f3f3f;"><strong style="color: #595959;">Proposal</strong></span></h2>
+                            <p style="background: white;"><strong><span style="padding: 0cm; font-weight: normal; border: 1pt none windowtext; color: #3f3f3f;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Proposal submission is closed for X Summit 2017. See the </span><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px;"><a href="http://www.cvent.com/events/x-summit-2017-registration-/custom-18-893d048f2bf94cb680449de2e5892c0c.aspx">Speakers&nbsp;</a></span></span></strong><strong><span style="padding: 0cm; font-weight: normal; border: 1pt none windowtext; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;">page for a list of accepted proposals.</span></strong></p>
+                            <h2><span style="font-family: Helvetica, Arial, sans-serif; font-size: 24px; color: #3f3f3f;"><strong style="color: #595959;">Volunteers</strong></span></h2>
+                            <p><span style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #3f3f3f;"><strong>Q:</strong> How can I be a volunteer?<br> <strong>A:</strong> An initial call for volunteers is complete. As we get closer to the event, another call for local (Toronto-based) volunteers will take place. Join us on slack for the latest: <a href="https://autodesk.slack.com/archives/C4VKYS45N">#adsk-xsummit17</a>!</span></p>
+                            <p>&nbsp;</p>
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+                        var popup_stuff = new Array([j$("#lnkAddCal"), j$("#tdCal"), j$("#ctl00_ContentPlaceHolder1_lstCal"), "#"]);
+                    </script>
+
+                    <div class="register-btn-bottom">
+                        <table align="right">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="grButtonLeft"></td>
+                                                    <td class="grButtonMid">
+                                                        <a id="ctl00_btnRegBottom" class="grButtonText" href="/events/x-summit-2017-registration-/registration-893d048f2bf94cb680449de2e5892c0c.aspx?cpc=FMNFC6DK4TZ">Register Now</a>
+                                                    </td>
+                                                    <td class="grButtonRight"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer.ejs %>
+    </footer>
+
+</body>
+
+</html>

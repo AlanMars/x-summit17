@@ -1,0 +1,130 @@
+$max-width-xs: 768px;
+$max-width-sm: 992px;
+$max-width-md: 1200px;
+$header-height: 70px;
+$footer-height: 44px;
+
+body {
+    font-family: "Artifakt Element", Helvetica, Sans-Serif, Arial;
+    padding-top: $header-height;
+
+    .container {
+        max-width: 990px;
+    }
+
+    a {
+        color: #CE3894;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    pre {
+        background-color: #ffffff;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    .image-top {
+        margin: 0 auto !important;
+        float: none !important;
+        max-width: 100% !important;
+        position: relative;
+        z-index: 1005;
+        padding: 0;
+        border: 0;
+    }
+    .top-image {
+        background: url(/img/x-summit-hero-01.png);
+        height: 316px;
+        background-repeat: no-repeat;
+        background-size: auto;
+    }
+
+    .grButtonText {
+        border: 1px solid #2D2D2D;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-family: 'Conv_Artifakt Legend Regular', Sans-Serif;
+        border-radius: 3px;
+        padding: 12px 50px 8px;
+        display: block;
+        text-decoration: none;
+        color: #2D2D2D;
+        background-color: white;
+        letter-spacing: 1.1px;
+        text-align: center;
+    }
+}
+
+header {
+    .navbar-default {
+        height: $header-height;
+        background-color: $black;
+        border: 0;
+
+        .navbar-nav > li > a {
+            text-transform: uppercase;
+            color: $white;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1.1px;
+            line-height: $header-height;
+            vertical-align: middle;
+            display: inline;
+
+            &:hover {
+                color: $autodesk-blue;
+            }
+        }
+
+        .navbar-collapse {
+            background-color: $black;
+        }
+    }
+
+    .navbar-header {
+        height: $header-height;
+
+        button {
+            &.navbar-toggle {
+                border: 0;
+                margin-top: 18px;
+
+                .icon-bar {
+                    background-color: $white;
+                }
+
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    background-color: $black;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0;
+    margin-top: 21px;
+
+    .footer-image {
+        line-height: $footer-height;
+
+        img {
+            display: inline;
+        }
+    }
+
+    p {
+        line-height: $footer-height;
+        font-size: 12px;
+        color: $white;
+        margin: 0;
+    }
+}

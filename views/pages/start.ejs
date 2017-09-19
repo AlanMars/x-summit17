@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/measures.ejs %>
+        <% include ../partials/head.ejs %>
+    <style>
+        .workshop {
+            text-align: center;
+            padding-top: 100px;
+            padding-bottom: 50px;
+        }
+
+        footer {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <% include ../partials/nav.ejs %>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <div class="top-image"></div>
+
+            <div class="workshop">
+                <a href="/welcome/">
+                    <h1>Welcome</h1>
+                    <h3>Start Workshop</h3>
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <% include ../partials/footer.ejs %>
+    </footer>
+
+</body>
+
+</html>

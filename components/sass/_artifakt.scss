@@ -1,0 +1,215 @@
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: normal;
+  font-weight: 100;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Hair.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Hair.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Hair.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Hair.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Hair.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: italic;
+  font-weight: 100;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Hair Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Hair Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Hair Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Hair Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Hair Italic.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: normal;
+  font-weight: 200;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Thin.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Thin.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Thin.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Thin.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Thin.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: italic;
+  font-weight: 200;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Thin Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Thin Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Thin Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Thin Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Thin Italic.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: normal;
+  font-weight: 300;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Light.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Light.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Light.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Light.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Light.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: italic;
+  font-weight: 300;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Light Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Light Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Light Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Light Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Light Italic.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Regular.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Regular.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Regular.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Regular.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Regular.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: italic;
+  font-weight: 400;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Italic.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: normal;
+  font-weight: 500;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Book.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Book.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Book.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Book.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Book.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: italic;
+  font-weight: 500;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Book Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Book Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Book Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Book Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Book Italic.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: normal;
+  font-weight: 600;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Medium.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Medium.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Medium.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Medium.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Medium.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: italic;
+  font-weight: 600;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Medium Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Medium Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Medium Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Medium Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Medium Italic.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Bold.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Bold.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Bold.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Bold.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Bold.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: italic;
+  font-weight: 700;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Bold Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Bold Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Bold Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Bold Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Bold Italic.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: normal;
+  font-weight: 800;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Black.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Black.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Black.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Black.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Black.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: italic;
+  font-weight: 800;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Black Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Black Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Black Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Black Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Black Italic.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: normal;
+  font-weight: 900;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Heavy.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Heavy.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Heavy.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Heavy.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Heavy.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Element';
+  font-style: italic;
+  font-weight: 900;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Heavy Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Heavy Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Heavy Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Heavy Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Element Heavy Italic.svg#Artifakt Element') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: normal;
+  font-weight: 100;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Hair.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Hair.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Hair.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Hair.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Hair.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: italic;
+  font-weight: 100;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Hair Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Hair Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Hair Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Hair Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Hair Italic.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: normal;
+  font-weight: 200;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Thin.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Thin.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Thin.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Thin.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Thin.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: italic;
+  font-weight: 200;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Thin Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Thin Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Thin Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Thin Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Thin Italic.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: normal;
+  font-weight: 300;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Light.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Light.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Light.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Light.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Light.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: italic;
+  font-weight: 300;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Light Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Light Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Light Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Light Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Light Italic.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Regular.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Regular.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Regular.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Regular.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Regular.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: italic;
+  font-weight: 400;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Italic.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: normal;
+  font-weight: 500;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Book.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Book.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Book.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Book.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Book.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: italic;
+  font-weight: 500;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Book Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Book Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Book Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Book Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Book Italic.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: normal;
+  font-weight: 600;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Medium.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Medium.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Medium.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Medium.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Medium.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: italic;
+  font-weight: 600;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Medium Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Medium Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Medium Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Medium Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Medium Italic.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Bold.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Bold.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Bold.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Bold.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Bold.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: italic;
+  font-weight: 700;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Bold Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Bold Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Bold Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Bold Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Bold Italic.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: normal;
+  font-weight: 800;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Black.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Black.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Black.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Black.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Black.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: italic;
+  font-weight: 800;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Black Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Black Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Black Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Black Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Black Italic.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: normal;
+  font-weight: 900;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Heavy.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Heavy.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Heavy.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Heavy.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Heavy.svg#Artifakt Legend') format('svg'); }
+
+@font-face {
+  font-family: 'Artifakt Legend';
+  font-style: italic;
+  font-weight: 900;
+  src: url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Heavy Italic.eot?#iefix') format('embedded-opentype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Heavy Italic.woff2') format('woff2'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Heavy Italic.woff') format('woff'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Heavy Italic.ttf') format('truetype'), url('https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt Legend Heavy Italic.svg#Artifakt Legend') format('svg'); }
