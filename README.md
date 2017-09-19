@@ -10,7 +10,7 @@ The user interface and workflow of this prototype was built based on hypothetica
 Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
 
 ```sh
-$ git clone git@github.com:AlanMars/x-summit17.git # or clone your own fork
+$ git clone https://github.com/AlanMars/x-summit17.git # or clone your own fork
 $ cd x-summit17
 $ npm install
 $ npm start

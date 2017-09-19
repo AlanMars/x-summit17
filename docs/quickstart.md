@@ -42,7 +42,7 @@ $ mkdir adsk-x-summit2017
 $ cd adsk-x-summit2017/
 
 # Clone or download
-$ git clone git@github.com:AlanMars/x-summit17.git
+$ git clone https://github.com/AlanMars/x-summit17.git
 $ cd x-summit17
 
 # Intall packages dependencies, takes about 16 secs
