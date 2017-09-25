@@ -9,7 +9,6 @@
   "scripts": {
     "build": "node index.js",
     "proxy": "gulp",
-    "test": "node test.js",
     "start": "npm-run-all --parallel build proxy"
   },
   "dependencies": {
@@ -23,8 +22,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.0",
     "npm-run-all": "^4.1.1",
-    "request": "^2.81.0",
-    "tape": "^4.7.0"
+    "request": "^2.81.0"
   },
   "repository": {
     "type": "git",
