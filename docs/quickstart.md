@@ -6,8 +6,8 @@
 
 - [Node.js](https://nodejs.org/en/), required
 
-  > Latest LTS Version: v6.11.3 (includes npm 3.10.10)<br>
-  > Latest Current Version: v8.4.0 (includes npm 5.3.0)
+  > Latest Current Version: v8.5.0 (includes npm 5.3.0) - **Recommend** <br>
+  > Latest LTS Version: v6.11.3 (includes npm 3.10.10)
 
 - Heroku CLI, required
 
@@ -21,7 +21,7 @@
 ```bash
 
 $ node --version
-v8.4.0
+v8.5.0
 
 $ npm --version
 5.3.0
@@ -70,10 +70,10 @@ Logged in as x-summit-17@autodesk.com
 
 ### Add git remote heroku
 
-For your existing repositories, simply set the **heroku** remote to <https://git.heroku.com/x-summit-table-{your> table number}.git
+For your existing repositories, simply set the **heroku** remote to https://git.heroku.com/x-summit-table-{your-table-number}.git
 
 ```bash
-$ heroku git:remote -a x-summit-table-500
+$ heroku git:remote -a x-summit-table-18
 
 set git remote heroku to https://git.heroku.com/x-summit-table-500.git
 ```
